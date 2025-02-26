@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #121212;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .payment-container {
+            background: #1E1E1E;
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            color: white;
+        }
+
+        .qr-code-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .qr-code-container img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #00BA88;
+        }
+
+        p {
+            margin: 15px 0;
+            color: #DDD;
+        }
+
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-link:hover {
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Scan to Pay</h2>
+        
+        <div class="qr-code-container">
+            <img id="qr-code" src="" alt="PhonePe QR Code">
+        </div>
+
+        <p>Stay Secure🔐!</p>
+        
+        <a href="https://wa.me/918467876568?text=Hey, I've made the payment" 
+           class="whatsapp-link" 
+           target="_blank">
+            Click me 🐯 to connect on Whatsapp!
+        </a>
+        
+        <br>
+        
+        <button class="back-button" onclick="window.location.href='index.html'">Go Back</button>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const plan = getQueryParam('plan');
+        const qrCodeImage = document.getElementById('qr-code');
+
+        switch (plan) {
+            case 'plus':
+                qrCodeImage.src = '3000QR.png';
+                break;
+            case 'pro':
+                qrCodeImage.src = '5000QR.png';
+                break;
+            case 'premium':
+                qrCodeImage.src = '10000QR.png';
+                break;
+            default:
+                qrCodeImage.src = 'defaultQR.png'; // Fallback image
+        }
+    </script>
+</body>
+</html>
