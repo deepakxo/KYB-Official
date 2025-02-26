@@ -7,12 +7,13 @@
     --white: #ffffff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
-    --container-width: 1200px;
-    --padding-mobile: 20px;
 }
 
 /* Pricing Section */
 .pricing {
+    padding: 80px 20px;
+    background: var(--white);
+}.pricing {
     padding: 80px 20px;
     background: var(--white);
 }
@@ -35,17 +36,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: var(--container-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px(--padding-mobile);
+    padding: 0 20px;
 }
 
 .price-card {
-    display: grid;
-    gap: 30px;
     background: var(--white);
     border-radius: 15px;
-    padding: 25px 20px;
+    padding: 40px 30px; /* Increase horizontal padding */
     min-width: 300px; /* Ensure minimum width */
     margin: 0 15px; /* Add some margin between cards */
     text-align: center;
@@ -140,8 +139,9 @@ html {
 }
 /* Categories Section */
 .categories {
-    padding: 60px 20px;
-    background: var(--light-gray);
+    margin-top: 80px; /* Adds space above categories section */
+    /* or */
+    padding-top: 80px; /* Alternative way to add space */
 }
 
 .categories-title {
@@ -153,9 +153,8 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: var(--container-width);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--padding-mobile);
 }
 
 .category-box {
@@ -195,12 +194,21 @@ html {
     height: 100%;
     cursor: pointer;
 }
+.categories::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1200px;
+    height: 1px;
+    background: #eee; /* Light gray separator line */
+}
 
 /* Help Desk Section */
 .help-desk {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 var(--padding-mobile);
+    padding: 60px 20px;
     background: var(--white);
 }
 
@@ -216,10 +224,10 @@ html {
 .help-form input,
 .help-form textarea {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 12px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 1rem;
 }
 
@@ -248,7 +256,7 @@ html {
 .footer {
     background: var(--primary-color);
     color: var(--white);
-    padding: 40px 20px;
+    padding: 60px 20px 30px;
 }
 
 .footer-content {
@@ -256,7 +264,7 @@ html {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 40px;
 }
 
 .footer-section h3 {
@@ -285,7 +293,7 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
     .pricing-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
     }
     
     .price-card {
@@ -296,19 +304,6 @@ html {
         grid-template-columns: 1fr;
         text-align: center;
     }
-}
-@media (max-width: 767px) {
-    .pricing-container {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
-/* Categories responsive layout */
-.categories-container {
-    display: grid;
-    gap: 30px;
-    padding: 20px;
 }
 /* Header and Navigation Styles */
 :root {
@@ -451,25 +446,6 @@ html {
 .wishlist-btn:hover .fas,
 .account-btn:hover .fas {
     transform: scale(1.1);
-}
-
-/* Typography responsive */
-@media (max-width: 767px) {
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
-    h3 { font-size: 18px; }
-    p { font-size: 16px; }
-}
-/* Spacing adjustments */
-@media (max-width: 767px) {
-    .section-divider {
-        height: 40px;
-    }
-    
-    .pricing-section,
-    .categories-section {
-        padding: 40px 0;
-    }
 }
 
 /* Responsive Design */
